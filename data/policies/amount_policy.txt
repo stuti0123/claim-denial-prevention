@@ -1,0 +1,55 @@
+BILLED AMOUNT POLICY — Financial Requirements for Claim Submissions
+=====================================================================
+Document ID: POL-BA-001
+Effective Date: 2026-01-01
+Department: Revenue Cycle Management
+
+Section 1: Purpose
+-------------------
+This policy establishes the requirements for the billed amount field
+on healthcare claim submissions. The billed amount is a mandatory
+financial field required for claim processing and reimbursement.
+
+Section 2: Billed Amount Requirements
+----------------------------------------
+Every healthcare claim MUST include a billed amount. The billed
+amount represents the total charge for the medical service provided.
+
+Requirements:
+  - The billed amount must be a positive numeric value.
+  - The billed amount must reflect the actual cost of the service.
+  - The billed amount should align with the provider's published
+    fee schedule.
+  - Zero-dollar claims are only acceptable for no-charge services
+    that are pre-approved by the payer.
+
+Section 3: Missing Amount Flag — WARN_MISSING_AMOUNT
+------------------------------------------------------
+When a claim is submitted without a billed amount, it is flagged
+with WARN_MISSING_AMOUNT. This flag carries a risk weight of 1.
+
+A missing billed amount indicates:
+  - The claim was submitted before the billing department completed
+    the charge capture process.
+  - A system error may have dropped the amount during electronic
+    submission.
+  - The service may not have been properly coded in the provider's
+    billing system.
+
+Remediation steps for WARN_MISSING_AMOUNT:
+  a) Verify the charge in the provider's billing system or
+     electronic health record (EHR).
+  b) Calculate the correct billed amount using the provider's
+     fee schedule for the CPT code on the claim.
+  c) Enter the billed amount and resubmit the claim.
+  d) If the service was provided at no charge, document the
+     reason and submit with a zero-dollar amount and a no-charge
+     authorization code.
+
+Section 4: Amount Validation Against Expected Cost
+-----------------------------------------------------
+After the billed amount is populated, it will be validated against
+the expected cost for the procedure. Claims where the billed amount
+exceeds 3.0 times the expected cost will be flagged with
+WARN_HIGH_BILLING. See the Billing Guidelines (POL-BG-001) for
+details on high billing thresholds and remediation.

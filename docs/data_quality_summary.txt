@@ -1,0 +1,32 @@
+============================================================
+DATA QUALITY SUMMARY — ALL BRONZE TABLES
+============================================================
+
+Table   : bronze_claims
+  Rows          : 1,000
+  Columns       : 9
+  Total nulls   : 891
+  Issues found  : 3
+
+Table   : bronze_providers
+  Rows          : 21
+  Columns       : 6
+  Total nulls   : 4
+  Issues found  : 0
+
+Table   : bronze_diagnosis
+  Rows          : 6
+  Columns       : 5
+  Total nulls   : 0
+  Issues found  : 0
+
+Table   : bronze_cost
+  Rows          : 6
+  Columns       : 6
+  Total nulls   : 0
+  Issues found  : 0
+
+--- Issues Requiring Attention ---
+  ⚠  [bronze_claims] HIGH NULLS in 'diagnosis_code': 30.7%
+  ⚠  [bronze_claims] HIGH NULLS in 'procedure_code': 24.1%
+  ⚠  [bronze_claims] HIGH NULLS in 'billed_amount': 34.3%

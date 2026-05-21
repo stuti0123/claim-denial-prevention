@@ -1,0 +1,6 @@
+{
+  "threshold": 0.37,
+  "chosen_by": "f1_maximisation_on_train_set",
+  "best_f1": 0.947,
+  "auc_roc": 0.9374
+}

@@ -1,0 +1,148 @@
+============================================================
+DATA QUALITY SUMMARY — ALL BRONZE TABLES
+============================================================
+
+Table   : bronze_claims
+  Rows          : 1,000
+  Columns       : 9
+  Total nulls   : 891
+  Issues found  : 3
+
+Table   : bronze_providers
+  Rows          : 21
+  Columns       : 6
+  Total nulls   : 4
+  Issues found  : 0
+
+Table   : bronze_diagnosis
+  Rows          : 6
+  Columns       : 5
+  Total nulls   : 0
+  Issues found  : 0
+
+Table   : bronze_cost
+  Rows          : 6
+  Columns       : 6
+  Total nulls   : 0
+  Issues found  : 0
+
+--- Issues Requiring Attention ---
+  ⚠  [bronze_claims] HIGH NULLS in 'diagnosis_code': 30.7%
+  ⚠  [bronze_claims] HIGH NULLS in 'procedure_code': 24.1%
+  ⚠  [bronze_claims] HIGH NULLS in 'billed_amount': 34.3%
+
+--- DETAILED PER-TABLE PROFILES ---
+============================================================
+PROFILING REPORT: bronze_claims.csv
+Generated : 2026-05-10 17:42:00
+============================================================
+
+Rows    : 1,000
+Columns : 9
+Names   : ['claim_id', 'patient_id', 'provider_id', 'diagnosis_code', 'procedure_code', 'billed_amount', 'date', 'ingestion_timestamp', 'source_file']
+
+--- Missing Values ---
+  diagnosis_code                   307 missing  (30.7%)
+  procedure_code                   241 missing  (24.1%)
+  billed_amount                    343 missing  (34.3%)
+
+--- Duplicate claim_ids ---
+  0 duplicate(s) found
+
+--- Date Range (date) ---
+  Min     : 2024-01-01 00:00:00
+  Max     : 2024-03-01 00:00:00
+  Invalid : 0 unparseable date(s)
+
+--- Column Cardinality (unique values) ---
+  claim_id                        1000 unique
+  patient_id                       452 unique
+  provider_id                       21 unique
+  diagnosis_code                     5 unique
+  procedure_code                     6 unique
+  billed_amount                    653 unique
+  date                              61 unique
+  ingestion_timestamp                1 unique
+  source_file                        1 unique
+
+--- Numeric Statistics ---
+       billed_amount
+count         657.00
+mean        22446.76
+std         12492.39
+min           633.00
+25%         12873.00
+50%         21512.00
+75%         29520.00
+max         49869.00
+
+============================================================
+PROFILING REPORT: bronze_providers.csv
+Generated : 2026-05-10 17:42:00
+============================================================
+
+Rows    : 21
+Columns : 6
+Names   : ['provider_id', 'doctor_name', 'specialty', 'location', 'ingestion_timestamp', 'source_file']
+
+--- Missing Values ---
+  location                           4 missing  (19.05%)
+
+--- Column Cardinality (unique values) ---
+  provider_id                       21 unique
+  doctor_name                        5 unique
+  specialty                          4 unique
+  location                           5 unique
+  ingestion_timestamp                1 unique
+  source_file                        1 unique
+
+============================================================
+PROFILING REPORT: bronze_diagnosis.csv
+Generated : 2026-05-10 17:42:00
+============================================================
+
+Rows    : 6
+Columns : 5
+Names   : ['diagnosis_code', 'category', 'severity', 'ingestion_timestamp', 'source_file']
+
+--- Missing Values ---
+  ✓ No missing values
+
+--- Column Cardinality (unique values) ---
+  diagnosis_code                     6 unique
+  category                           6 unique
+  severity                           2 unique
+  ingestion_timestamp                1 unique
+  source_file                        1 unique
+
+============================================================
+PROFILING REPORT: bronze_cost.csv
+Generated : 2026-05-10 17:42:00
+============================================================
+
+Rows    : 6
+Columns : 6
+Names   : ['procedure_code', 'average_cost', 'expected_cost', 'region', 'ingestion_timestamp', 'source_file']
+
+--- Missing Values ---
+  ✓ No missing values
+
+--- Column Cardinality (unique values) ---
+  procedure_code                     6 unique
+  average_cost                       6 unique
+  expected_cost                      6 unique
+  region                             6 unique
+  ingestion_timestamp                1 unique
+  source_file                        1 unique
+
+--- Numeric Statistics ---
+       average_cost  expected_cost
+count          6.00           6.00
+mean        8300.00       10533.33
+std         6816.16        8434.85
+min          800.00        1200.00
+25%         4500.00        5750.00
+50%         6500.00        8500.00
+75%        10750.00       13500.00
+max        20000.00       25000.00
+

@@ -1,0 +1,9 @@
+{
+  "claim_amount_ratio": 2.4673125000000002,
+  "provider_claim_count": 47.0,
+  "provider_denial_rate": 0.7778,
+  "diagnosis_severity_flag": 0.0,
+  "missing_fields_count": 1.0,
+  "is_high_biller": 0.0,
+  "claim_month": 1.0
+}

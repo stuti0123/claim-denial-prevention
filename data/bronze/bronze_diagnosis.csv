@@ -1,0 +1,7 @@
+diagnosis_code,category,severity,ingestion_timestamp,source_file
+D10,Heart,High,2026-05-19T14:47:47.012954,diagnosis.csv
+D20,Bone,High,2026-05-19T14:47:47.012954,diagnosis.csv
+D30,Fever,Low,2026-05-19T14:47:47.012954,diagnosis.csv
+D40,Skin,Low,2026-05-19T14:47:47.012954,diagnosis.csv
+D50,Diabetes,High,2026-05-19T14:47:47.012954,diagnosis.csv
+D60,Cold,Low,2026-05-19T14:47:47.012954,diagnosis.csv

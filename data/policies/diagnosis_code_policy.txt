@@ -1,0 +1,75 @@
+DIAGNOSIS CODE POLICY — ICD-10 Requirements for Claim Submissions
+===================================================================
+Document ID: POL-DX-001
+Effective Date: 2026-01-01
+Department: Medical Coding Compliance
+
+Section 1: Purpose
+-------------------
+This policy establishes requirements for diagnosis codes on all
+healthcare claim submissions. Accurate diagnosis coding is essential
+for determining medical necessity and ensuring appropriate reimbursement.
+
+Section 2: ICD-10 Code Requirements
+--------------------------------------
+All claims MUST include a valid ICD-10 diagnosis code. The diagnosis
+code serves as the medical justification for the procedure performed.
+
+Accepted diagnosis codes in the current reference table:
+  D10 — Respiratory conditions (severity: Low)
+  D20 — Cardiac conditions (severity: High)
+  D30 — Orthopedic conditions (severity: Medium)
+  D40 — Neurological conditions (severity: High)
+  D50 — Digestive conditions (severity: Low)
+  D60 — Endocrine/Diabetes conditions (severity: High)
+
+Section 3: Missing Diagnosis Code — WARN_MISSING_DIAGNOSIS
+------------------------------------------------------------
+When a claim is submitted without a diagnosis code, it is flagged
+with WARN_MISSING_DIAGNOSIS. This flag carries a risk weight of 2.
+
+A missing diagnosis code indicates that:
+  - The clinical encounter may not have been properly documented.
+  - Medical necessity cannot be established without a diagnosis.
+  - The payer cannot verify that the treatment is appropriate for
+    the patient's condition.
+
+Remediation steps for WARN_MISSING_DIAGNOSIS:
+  a) Review the patient's clinical notes from the encounter date.
+  b) Identify the primary diagnosis documented by the physician.
+  c) Look up the correct ICD-10 code in the coding reference.
+  d) Add the diagnosis code to the claim and resubmit.
+  e) If no clinical documentation exists, contact the treating
+     physician to complete the encounter documentation.
+
+Section 4: Invalid Diagnosis Code — WARN_INVALID_DIAGNOSIS
+------------------------------------------------------------
+When a claim contains a diagnosis code that is NOT in the payer's
+accepted reference table, it is flagged with WARN_INVALID_DIAGNOSIS.
+This flag carries a risk weight of 1.
+
+Common causes of WARN_INVALID_DIAGNOSIS:
+  - Typographical error in the diagnosis code (e.g., "D15" instead
+    of "D10").
+  - Use of an outdated or retired ICD-10 code.
+  - Use of a code from a different coding system (e.g., ICD-9).
+
+Remediation steps for WARN_INVALID_DIAGNOSIS:
+  a) Verify the diagnosis code against the current accepted code
+     list (D10, D20, D30, D40, D50, D60).
+  b) If the code was entered incorrectly, correct the typo and
+     resubmit.
+  c) If the patient's condition does not map to any accepted code,
+     contact the medical coding department for guidance.
+  d) If the code is valid but not in the reference table, submit
+     a code addition request to the payer.
+
+Section 5: High-Severity Diagnoses
+-------------------------------------
+Diagnosis codes with severity level "High" (D20, D40, D60) are
+associated with complex conditions that often require expensive
+treatments. Claims with high-severity diagnoses are monitored for:
+  - Appropriate procedure-to-diagnosis matching.
+  - Billing amounts that align with expected costs for the
+    condition category.
+  - Completeness of supporting documentation.

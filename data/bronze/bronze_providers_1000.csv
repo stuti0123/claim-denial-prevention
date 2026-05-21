@@ -1,0 +1,22 @@
+provider_id,doctor_name,specialty,location,ingestion_timestamp,source_file
+PR100,Dr Patel,Neurology,Bangalore,2026-04-20 17:41:20.467283,providers_1000.csv
+PR101,Dr Singh,Cardiology,,2026-04-20 17:41:20.467283,providers_1000.csv
+PR102,Dr Khan,Cardiology,Bangalore,2026-04-20 17:41:20.467283,providers_1000.csv
+PR103,Dr Sharma,General,Mumbai,2026-04-20 17:41:20.467283,providers_1000.csv
+PR104,Dr Khan,Orthopedic,,2026-04-20 17:41:20.467283,providers_1000.csv
+PR105,Dr Sharma,Orthopedic,,2026-04-20 17:41:20.467283,providers_1000.csv
+PR106,Dr Singh,Cardiology,,2026-04-20 17:41:20.467283,providers_1000.csv
+PR107,Dr Patel,Orthopedic,Bangalore,2026-04-20 17:41:20.467283,providers_1000.csv
+PR108,Dr Sharma,Neurology,Hyderabad,2026-04-20 17:41:20.467283,providers_1000.csv
+PR109,Dr Mehta,Cardiology,Chennai,2026-04-20 17:41:20.467283,providers_1000.csv
+PR110,Dr Singh,Neurology,Delhi,2026-04-20 17:41:20.467283,providers_1000.csv
+PR111,Dr Sharma,Orthopedic,Delhi,2026-04-20 17:41:20.467283,providers_1000.csv
+PR112,Dr Sharma,Cardiology,Hyderabad,2026-04-20 17:41:20.467283,providers_1000.csv
+PR113,Dr Khan,Neurology,Chennai,2026-04-20 17:41:20.467283,providers_1000.csv
+PR114,Dr Patel,Orthopedic,Mumbai,2026-04-20 17:41:20.467283,providers_1000.csv
+PR115,Dr Sharma,Orthopedic,Bangalore,2026-04-20 17:41:20.467283,providers_1000.csv
+PR116,Dr Singh,Neurology,Delhi,2026-04-20 17:41:20.467283,providers_1000.csv
+PR117,Dr Singh,Orthopedic,Chennai,2026-04-20 17:41:20.467283,providers_1000.csv
+PR118,Dr Singh,Neurology,Chennai,2026-04-20 17:41:20.467283,providers_1000.csv
+PR119,Dr Mehta,Cardiology,Chennai,2026-04-20 17:41:20.467283,providers_1000.csv
+PR120,Dr Patel,General,Hyderabad,2026-04-20 17:41:20.467283,providers_1000.csv

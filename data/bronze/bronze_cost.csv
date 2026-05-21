@@ -1,0 +1,7 @@
+procedure_code,average_cost,expected_cost,region,ingestion_timestamp,source_file
+PROC1,4000,5000,Delhi,2026-05-19T14:47:47.021476,cost.csv
+PROC2,12000,15000,Mumbai,2026-05-19T14:47:47.021476,cost.csv
+PROC3,7000,9000,Bangalore,2026-05-19T14:47:47.021476,cost.csv
+PROC4,6000,8000,Hyderabad,2026-05-19T14:47:47.021476,cost.csv
+PROC5,20000,25000,Chennai,2026-05-19T14:47:47.021476,cost.csv
+PROC6,800,1200,Ahmedabad,2026-05-19T14:47:47.021476,cost.csv

@@ -1,0 +1,9 @@
+{
+  "missing_fields_count": 0.7011891007423401,
+  "diagnosis_severity_flag": 0.09750434011220932,
+  "is_high_biller": 0.07266157865524292,
+  "claim_amount_ratio": 0.06504914164543152,
+  "provider_denial_rate": 0.02650042623281479,
+  "provider_claim_count": 0.02161492593586445,
+  "claim_month": 0.015480387955904007
+}

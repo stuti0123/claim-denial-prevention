@@ -1,0 +1,69 @@
+INCOMPLETE CLAIM POLICY — Required Fields for Claim Processing
+================================================================
+Document ID: POL-IC-001
+Effective Date: 2026-01-01
+Department: Claims Adjudication
+
+Section 1: Purpose
+-------------------
+This policy defines the minimum required fields for a healthcare
+claim to be considered complete and processable. Claims missing
+critical fields are flagged as incomplete and are subject to
+automatic denial.
+
+Section 2: Required Claim Fields
+----------------------------------
+Every healthcare claim submission MUST include the following fields:
+
+  1. Diagnosis Code (ICD-10 format) — identifies the medical condition.
+  2. Procedure Code (CPT format) — identifies the treatment performed.
+  3. Billed Amount — the dollar amount charged by the provider.
+  4. Patient ID — unique patient identifier.
+  5. Provider ID — unique provider/physician identifier.
+  6. Date of Service — when the procedure was performed.
+
+Section 3: Incomplete Claim Flag — ERR_INCOMPLETE_CLAIM
+--------------------------------------------------------
+A claim is classified as ERR_INCOMPLETE_CLAIM when BOTH the
+diagnosis code AND the procedure code are missing. This is the
+most severe validation error because:
+
+  - Without a diagnosis code, the payer cannot determine medical
+    necessity for the treatment.
+  - Without a procedure code, the payer cannot verify that the
+    treatment is covered under the patient's plan.
+  - A claim missing both fields cannot be adjudicated and will
+    be automatically denied.
+
+ERR_INCOMPLETE_CLAIM carries a risk weight of 3 (highest),
+compared to individual missing field warnings which carry a
+weight of 1-2.
+
+Section 4: Remediation for ERR_INCOMPLETE_CLAIM
+-------------------------------------------------
+When a claim is flagged with ERR_INCOMPLETE_CLAIM:
+
+  a) The billing analyst MUST obtain the diagnosis code from the
+     treating physician's clinical notes or the encounter summary.
+  b) The procedure code must be determined from the operative
+     report or the procedure log.
+  c) Both fields must be populated before the claim can be
+     resubmitted.
+  d) If the procedure was not documented, the provider must
+     complete a late documentation form (LDF-001) before the
+     claim can be processed.
+  e) Claims with ERR_INCOMPLETE_CLAIM that are not corrected
+     within 60 days of the original submission date are
+     permanently denied with no appeal option.
+
+Section 5: Partial Missing Fields
+-----------------------------------
+If only ONE of the two critical fields is missing (either diagnosis
+OR procedure, but not both), the claim receives a WARNING-level
+flag instead:
+  - WARN_MISSING_DIAGNOSIS (risk weight: 2)
+  - WARN_MISSING_PROCEDURE (risk weight: 2)
+
+These claims are placed in a review queue but are not automatically
+denied. See the Diagnosis Code Policy (POL-DX-001) and Procedure
+Code Policy (POL-PX-001) for specific remediation steps.

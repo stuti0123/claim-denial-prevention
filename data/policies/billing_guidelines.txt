@@ -1,0 +1,55 @@
+BILLING GUIDELINES — Healthcare Claim Processing Standards
+==========================================================
+Document ID: POL-BG-001
+Effective Date: 2026-01-01
+Department: Revenue Cycle Management
+
+Section 1: Purpose
+-------------------
+This document establishes guidelines for acceptable billing practices
+in healthcare claim submissions. All providers must comply with these
+standards to avoid claim denials related to billing irregularities.
+
+Section 2: Acceptable Billing Thresholds
+-----------------------------------------
+A claim's billed amount must fall within a reasonable range of the
+expected cost for the procedure performed. The expected cost is
+determined by the standard procedure cost reference table maintained
+by the payer.
+
+  - ACCEPTABLE: Billed amount is within 3.0 times the expected cost.
+  - WARNING (WARN_HIGH_BILLING): Billed amount exceeds 3.0 times
+    the expected cost. Claims exceeding this threshold are flagged
+    for manual review and are at high risk of denial.
+
+Section 3: High Billing Flag — WARN_HIGH_BILLING
+--------------------------------------------------
+When a claim is flagged with WARN_HIGH_BILLING, the following applies:
+
+  1. The claim is placed in a manual review queue.
+  2. The provider MUST submit itemized receipts justifying the charge.
+  3. Supporting documentation such as operative notes, pathology reports,
+     or equipment usage logs may be required.
+  4. If the provider cannot justify the billed amount within 30 days,
+     the claim is automatically denied.
+
+Remediation steps for WARN_HIGH_BILLING:
+  a) Review the billed amount against the expected cost in the
+     procedure cost reference table.
+  b) If the higher amount is justified (e.g., complication during
+     surgery, additional materials required), attach supporting
+     documentation and resubmit.
+  c) If the billed amount was entered in error, correct the amount
+     to match the actual cost and resubmit.
+  d) Contact the payer's provider relations department if the
+     expected cost in the reference table is outdated.
+
+Section 4: Overbilling Penalties
+---------------------------------
+Repeated WARN_HIGH_BILLING flags on claims from the same provider
+may trigger a provider audit. See the Provider Audit Policy
+(POL-PA-001) for audit thresholds and procedures.
+
+Providers with a high billing flag rate exceeding 25% of total
+submitted claims within a 90-day period will receive a formal
+audit notification letter.

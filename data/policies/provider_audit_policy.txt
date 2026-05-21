@@ -1,0 +1,71 @@
+PROVIDER AUDIT POLICY — Monitoring and Audit Triggers
+=======================================================
+Document ID: POL-PA-001
+Effective Date: 2026-01-01
+Department: Compliance and Fraud Prevention
+
+Section 1: Purpose
+-------------------
+This policy defines the criteria for triggering a provider audit
+based on claim submission patterns. Providers with consistently
+high denial rates or billing irregularities are subject to
+enhanced monitoring and formal audit proceedings.
+
+Section 2: Provider Denial Rate Monitoring
+--------------------------------------------
+The provider denial rate is calculated as the percentage of a
+provider's total submitted claims that have one or more validation
+flags. This metric is computed in the Gold feature engineering
+layer as the provider_denial_rate feature.
+
+Thresholds:
+  - NORMAL: Provider denial rate below 20%. No action required.
+  - ELEVATED: Provider denial rate between 20% and 40%.
+    The provider receives a notification letter recommending
+    a review of their billing practices.
+  - HIGH RISK: Provider denial rate above 40%.
+    The provider is flagged for a formal compliance audit.
+
+Section 3: Audit Trigger Criteria
+------------------------------------
+A formal provider audit is triggered when ANY of the following
+conditions are met:
+
+  1. Provider denial rate exceeds 40% over a 90-day period.
+  2. More than 10 claims from the same provider are flagged with
+     WARN_HIGH_BILLING within a 30-day period.
+  3. More than 5 claims from the same provider are flagged with
+     ERR_INCOMPLETE_CLAIM within a 30-day period.
+  4. A single claim from the provider has a billed amount
+     exceeding 10 times the expected cost.
+
+Section 4: Audit Process
+---------------------------
+When an audit is triggered:
+
+  a) The compliance team sends a formal audit notification to
+     the provider within 5 business days.
+  b) The provider has 30 days to submit documentation for all
+     flagged claims.
+  c) The compliance team reviews all submitted documentation
+     and cross-references with clinical records.
+  d) If billing irregularities are confirmed, the provider
+     may face penalties including:
+       - Reduced reimbursement rates for 6 months.
+       - Mandatory billing training program completion.
+       - Temporary suspension from the payer network.
+       - Referral to the Office of Inspector General (OIG)
+         for suspected fraud.
+
+Section 5: Provider Claim Volume
+-----------------------------------
+The provider_claim_count feature tracks the total number of
+claims submitted by each provider. High-volume providers
+(more than 100 claims per month) receive additional scrutiny
+because:
+  - Billing errors at scale can result in significant
+    financial impact.
+  - High-volume providers may use automated billing systems
+    that can propagate systematic errors.
+  - Pattern detection is more statistically reliable with
+    larger claim volumes.

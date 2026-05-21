@@ -1,0 +1,152 @@
+[
+  {
+    "chunk_id": "amount_policy_0",
+    "source_file": "amount_policy.txt",
+    "text": "BILLED AMOUNT POLICY — Financial Requirements for Claim Submissions ===================================================================== Document ID: POL-BA-001 Effective Date: 2026-01-01 Department: Revenue Cycle Management Section 1: Purpose ------------------- This policy establishes the requirements for the billed amount field on healthcare claim submissions. The billed amount is a mandatory financial field required for claim processing and reimbursement. Section 2: Billed Amount Requirements ---------------------------------------- Every healthcare claim MUST include a billed amount. The billed amount represents the total charge for the medical service provided. Requirements: - The billed amount must be a positive numeric value. - The billed amount must reflect the actual cost of the service. - The billed amount should align with the provider's published fee schedule. - Zero-dollar claims are only acceptable for no-charge services that are pre-approved by the payer. Section 3: Missing Amount Flag — WARN_MISSING_AMOUNT ------------------------------------------------------ When a claim is submitted without a billed amount, it is flagged with WARN_MISSING_AMOUNT. This flag carries a risk weight of 1. A missing billed amount indicates: - The claim was submitted before the billing department completed the charge capture process. - A system error may have dropped the amount during electronic submission. - The service may not have been properly coded in the",
+    "metadata": {
+      "source_file": "amount_policy.txt",
+      "chunk_index": 0,
+      "total_chunks": 2
+    }
+  },
+  {
+    "chunk_id": "amount_policy_1",
+    "source_file": "amount_policy.txt",
+    "text": "This flag carries a risk weight of 1. A missing billed amount indicates: - The claim was submitted before the billing department completed the charge capture process. - A system error may have dropped the amount during electronic submission. - The service may not have been properly coded in the provider's billing system. Remediation steps for WARN_MISSING_AMOUNT: a) Verify the charge in the provider's billing system or electronic health record (EHR). b) Calculate the correct billed amount using the provider's fee schedule for the CPT code on the claim. c) Enter the billed amount and resubmit the claim. d) If the service was provided at no charge, document the reason and submit with a zero-dollar amount and a no-charge authorization code. Section 4: Amount Validation Against Expected Cost ----------------------------------------------------- After the billed amount is populated, it will be validated against the expected cost for the procedure. Claims where the billed amount exceeds 3.0 times the expected cost will be flagged with WARN_HIGH_BILLING. See the Billing Guidelines (POL-BG-001) for details on high billing thresholds and remediation.",
+    "metadata": {
+      "source_file": "amount_policy.txt",
+      "chunk_index": 1,
+      "total_chunks": 2
+    }
+  },
+  {
+    "chunk_id": "billing_guidelines_0",
+    "source_file": "billing_guidelines.txt",
+    "text": "BILLING GUIDELINES — Healthcare Claim Processing Standards ========================================================== Document ID: POL-BG-001 Effective Date: 2026-01-01 Department: Revenue Cycle Management Section 1: Purpose ------------------- This document establishes guidelines for acceptable billing practices in healthcare claim submissions. All providers must comply with these standards to avoid claim denials related to billing irregularities. Section 2: Acceptable Billing Thresholds ----------------------------------------- A claim's billed amount must fall within a reasonable range of the expected cost for the procedure performed. The expected cost is determined by the standard procedure cost reference table maintained by the payer. - ACCEPTABLE: Billed amount is within 3.0 times the expected cost. - WARNING (WARN_HIGH_BILLING): Billed amount exceeds 3.0 times the expected cost. Claims exceeding this threshold are flagged for manual review and are at high risk of denial. Section 3: High Billing Flag — WARN_HIGH_BILLING -------------------------------------------------- When a claim is flagged with WARN_HIGH_BILLING, the following applies: 1. The claim is placed in a manual review queue. 2. The provider MUST submit itemized receipts justifying the charge. 3. Supporting documentation such as operative notes, pathology reports, or equipment usage logs may be required. 4. If the provider cannot justify the billed amount within 30 days, the claim is automatically denied. Remediation steps",
+    "metadata": {
+      "source_file": "billing_guidelines.txt",
+      "chunk_index": 0,
+      "total_chunks": 2
+    }
+  },
+  {
+    "chunk_id": "billing_guidelines_1",
+    "source_file": "billing_guidelines.txt",
+    "text": "in a manual review queue. 2. The provider MUST submit itemized receipts justifying the charge. 3. Supporting documentation such as operative notes, pathology reports, or equipment usage logs may be required. 4. If the provider cannot justify the billed amount within 30 days, the claim is automatically denied. Remediation steps for WARN_HIGH_BILLING: a) Review the billed amount against the expected cost in the procedure cost reference table. b) If the higher amount is justified (e.g., complication during surgery, additional materials required), attach supporting documentation and resubmit. c) If the billed amount was entered in error, correct the amount to match the actual cost and resubmit. d) Contact the payer's provider relations department if the expected cost in the reference table is outdated. Section 4: Overbilling Penalties --------------------------------- Repeated WARN_HIGH_BILLING flags on claims from the same provider may trigger a provider audit. See the Provider Audit Policy (POL-PA-001) for audit thresholds and procedures. Providers with a high billing flag rate exceeding 25% of total submitted claims within a 90-day period will receive a formal audit notification letter.",
+    "metadata": {
+      "source_file": "billing_guidelines.txt",
+      "chunk_index": 1,
+      "total_chunks": 2
+    }
+  },
+  {
+    "chunk_id": "diagnosis_code_policy_0",
+    "source_file": "diagnosis_code_policy.txt",
+    "text": "DIAGNOSIS CODE POLICY — ICD-10 Requirements for Claim Submissions =================================================================== Document ID: POL-DX-001 Effective Date: 2026-01-01 Department: Medical Coding Compliance Section 1: Purpose ------------------- This policy establishes requirements for diagnosis codes on all healthcare claim submissions. Accurate diagnosis coding is essential for determining medical necessity and ensuring appropriate reimbursement. Section 2: ICD-10 Code Requirements -------------------------------------- All claims MUST include a valid ICD-10 diagnosis code. The diagnosis code serves as the medical justification for the procedure performed. Accepted diagnosis codes in the current reference table: D10 — Respiratory conditions (severity: Low) D20 — Cardiac conditions (severity: High) D30 — Orthopedic conditions (severity: Medium) D40 — Neurological conditions (severity: High) D50 — Digestive conditions (severity: Low) D60 — Endocrine/Diabetes conditions (severity: High) Section 3: Missing Diagnosis Code — WARN_MISSING_DIAGNOSIS ------------------------------------------------------------ When a claim is submitted without a diagnosis code, it is flagged with WARN_MISSING_DIAGNOSIS. This flag carries a risk weight of 2. A missing diagnosis code indicates that: - The clinical encounter may not have been properly documented. - Medical necessity cannot be established without a diagnosis. - The payer cannot verify that the treatment is appropriate for the patient's condition. Remediation steps for WARN_MISSING_DIAGNOSIS: a) Review the patient's clinical notes from",
+    "metadata": {
+      "source_file": "diagnosis_code_policy.txt",
+      "chunk_index": 0,
+      "total_chunks": 3
+    }
+  },
+  {
+    "chunk_id": "diagnosis_code_policy_1",
+    "source_file": "diagnosis_code_policy.txt",
+    "text": "A missing diagnosis code indicates that: - The clinical encounter may not have been properly documented. - Medical necessity cannot be established without a diagnosis. - The payer cannot verify that the treatment is appropriate for the patient's condition. Remediation steps for WARN_MISSING_DIAGNOSIS: a) Review the patient's clinical notes from the encounter date. b) Identify the primary diagnosis documented by the physician. c) Look up the correct ICD-10 code in the coding reference. d) Add the diagnosis code to the claim and resubmit. e) If no clinical documentation exists, contact the treating physician to complete the encounter documentation. Section 4: Invalid Diagnosis Code — WARN_INVALID_DIAGNOSIS ------------------------------------------------------------ When a claim contains a diagnosis code that is NOT in the payer's accepted reference table, it is flagged with WARN_INVALID_DIAGNOSIS. This flag carries a risk weight of 1. Common causes of WARN_INVALID_DIAGNOSIS: - Typographical error in the diagnosis code (e.g., \"D15\" instead of \"D10\"). - Use of an outdated or retired ICD-10 code. - Use of a code from a different coding system (e.g., ICD-9). Remediation steps for WARN_INVALID_DIAGNOSIS: a) Verify the diagnosis code against the current accepted code list (D10, D20, D30, D40, D50, D60). b) If the code was entered incorrectly,",
+    "metadata": {
+      "source_file": "diagnosis_code_policy.txt",
+      "chunk_index": 1,
+      "total_chunks": 3
+    }
+  },
+  {
+    "chunk_id": "diagnosis_code_policy_2",
+    "source_file": "diagnosis_code_policy.txt",
+    "text": "\"D10\"). - Use of an outdated or retired ICD-10 code. - Use of a code from a different coding system (e.g., ICD-9). Remediation steps for WARN_INVALID_DIAGNOSIS: a) Verify the diagnosis code against the current accepted code list (D10, D20, D30, D40, D50, D60). b) If the code was entered incorrectly, correct the typo and resubmit. c) If the patient's condition does not map to any accepted code, contact the medical coding department for guidance. d) If the code is valid but not in the reference table, submit a code addition request to the payer. Section 5: High-Severity Diagnoses ------------------------------------- Diagnosis codes with severity level \"High\" (D20, D40, D60) are associated with complex conditions that often require expensive treatments. Claims with high-severity diagnoses are monitored for: - Appropriate procedure-to-diagnosis matching. - Billing amounts that align with expected costs for the condition category. - Completeness of supporting documentation.",
+    "metadata": {
+      "source_file": "diagnosis_code_policy.txt",
+      "chunk_index": 2,
+      "total_chunks": 3
+    }
+  },
+  {
+    "chunk_id": "incomplete_claim_policy_0",
+    "source_file": "incomplete_claim_policy.txt",
+    "text": "INCOMPLETE CLAIM POLICY — Required Fields for Claim Processing ================================================================ Document ID: POL-IC-001 Effective Date: 2026-01-01 Department: Claims Adjudication Section 1: Purpose ------------------- This policy defines the minimum required fields for a healthcare claim to be considered complete and processable. Claims missing critical fields are flagged as incomplete and are subject to automatic denial. Section 2: Required Claim Fields ---------------------------------- Every healthcare claim submission MUST include the following fields: 1. Diagnosis Code (ICD-10 format) — identifies the medical condition. 2. Procedure Code (CPT format) — identifies the treatment performed. 3. Billed Amount — the dollar amount charged by the provider. 4. Patient ID — unique patient identifier. 5. Provider ID — unique provider/physician identifier. 6. Date of Service — when the procedure was performed. Section 3: Incomplete Claim Flag — ERR_INCOMPLETE_CLAIM -------------------------------------------------------- A claim is classified as ERR_INCOMPLETE_CLAIM when BOTH the diagnosis code AND the procedure code are missing. This is the most severe validation error because: - Without a diagnosis code, the payer cannot determine medical necessity for the treatment. - Without a procedure code, the payer cannot verify that the treatment is covered under the patient's plan. - A claim missing both fields cannot be adjudicated and will",
+    "metadata": {
+      "source_file": "incomplete_claim_policy.txt",
+      "chunk_index": 0,
+      "total_chunks": 3
+    }
+  },
+  {
+    "chunk_id": "incomplete_claim_policy_1",
+    "source_file": "incomplete_claim_policy.txt",
+    "text": "is the most severe validation error because: - Without a diagnosis code, the payer cannot determine medical necessity for the treatment. - Without a procedure code, the payer cannot verify that the treatment is covered under the patient's plan. - A claim missing both fields cannot be adjudicated and will be automatically denied. ERR_INCOMPLETE_CLAIM carries a risk weight of 3 (highest), compared to individual missing field warnings which carry a weight of 1-2. Section 4: Remediation for ERR_INCOMPLETE_CLAIM ------------------------------------------------- When a claim is flagged with ERR_INCOMPLETE_CLAIM: a) The billing analyst MUST obtain the diagnosis code from the treating physician's clinical notes or the encounter summary. b) The procedure code must be determined from the operative report or the procedure log. c) Both fields must be populated before the claim can be resubmitted. d) If the procedure was not documented, the provider must complete a late documentation form (LDF-001) before the claim can be processed. e) Claims with ERR_INCOMPLETE_CLAIM that are not corrected within 60 days of the original submission date are permanently denied with no appeal option. Section 5: Partial Missing Fields ----------------------------------- If only ONE of the two critical fields is missing (either diagnosis OR procedure, but not both),",
+    "metadata": {
+      "source_file": "incomplete_claim_policy.txt",
+      "chunk_index": 1,
+      "total_chunks": 3
+    }
+  },
+  {
+    "chunk_id": "incomplete_claim_policy_2",
+    "source_file": "incomplete_claim_policy.txt",
+    "text": "claim can be processed. e) Claims with ERR_INCOMPLETE_CLAIM that are not corrected within 60 days of the original submission date are permanently denied with no appeal option. Section 5: Partial Missing Fields ----------------------------------- If only ONE of the two critical fields is missing (either diagnosis OR procedure, but not both), the claim receives a WARNING-level flag instead: - WARN_MISSING_DIAGNOSIS (risk weight: 2) - WARN_MISSING_PROCEDURE (risk weight: 2) These claims are placed in a review queue but are not automatically denied. See the Diagnosis Code Policy (POL-DX-001) and Procedure Code Policy (POL-PX-001) for specific remediation steps.",
+    "metadata": {
+      "source_file": "incomplete_claim_policy.txt",
+      "chunk_index": 2,
+      "total_chunks": 3
+    }
+  },
+  {
+    "chunk_id": "procedure_code_policy_0",
+    "source_file": "procedure_code_policy.txt",
+    "text": "PROCEDURE CODE POLICY — CPT Code Requirements for Claims ========================================================== Document ID: POL-PX-001 Effective Date: 2026-01-01 Department: Medical Coding Compliance Section 1: Purpose ------------------- This policy defines the requirements for procedure codes on healthcare claim submissions. Every claim must include a valid CPT procedure code that accurately describes the service performed. Section 2: Procedure Code Requirements ----------------------------------------- All claims MUST include a valid procedure code. The procedure code identifies the specific medical service, surgery, or treatment that was provided to the patient. Without a procedure code, the payer cannot determine the appropriate reimbursement amount. Section 3: Missing Procedure Code — WARN_MISSING_PROCEDURE ------------------------------------------------------------- When a claim is submitted without a procedure code, it is flagged with WARN_MISSING_PROCEDURE. This flag carries a risk weight of 2. A missing procedure code means: - The payer cannot determine what service was provided. - The expected cost cannot be calculated (no cost benchmark). - The claim cannot be matched against the patient's coverage plan. - Reimbursement cannot be processed until the code is added. Remediation steps for WARN_MISSING_PROCEDURE: a) Review the operative report or procedure notes from the date of service. b) Identify the CPT code that matches the service performed. c) Verify that the",
+    "metadata": {
+      "source_file": "procedure_code_policy.txt",
+      "chunk_index": 0,
+      "total_chunks": 2
+    }
+  },
+  {
+    "chunk_id": "procedure_code_policy_1",
+    "source_file": "procedure_code_policy.txt",
+    "text": "claim cannot be matched against the patient's coverage plan. - Reimbursement cannot be processed until the code is added. Remediation steps for WARN_MISSING_PROCEDURE: a) Review the operative report or procedure notes from the date of service. b) Identify the CPT code that matches the service performed. c) Verify that the CPT code is current and not retired. d) Add the procedure code to the claim and resubmit. e) If multiple procedures were performed, include all applicable CPT codes with appropriate modifiers. f) If the procedure is unlisted, use the appropriate unlisted procedure code and attach a detailed description. Section 4: Procedure-Diagnosis Matching ------------------------------------------ The procedure code must be clinically consistent with the diagnosis code. For example: - A cardiac procedure should be paired with a cardiac diagnosis (D20 — Cardiac conditions). - An orthopedic procedure should be paired with an orthopedic diagnosis (D30 — Orthopedic conditions). Mismatched procedure-diagnosis pairs may trigger additional review and potential denial for lack of medical necessity.",
+    "metadata": {
+      "source_file": "procedure_code_policy.txt",
+      "chunk_index": 1,
+      "total_chunks": 2
+    }
+  },
+  {
+    "chunk_id": "provider_audit_policy_0",
+    "source_file": "provider_audit_policy.txt",
+    "text": "PROVIDER AUDIT POLICY — Monitoring and Audit Triggers ======================================================= Document ID: POL-PA-001 Effective Date: 2026-01-01 Department: Compliance and Fraud Prevention Section 1: Purpose ------------------- This policy defines the criteria for triggering a provider audit based on claim submission patterns. Providers with consistently high denial rates or billing irregularities are subject to enhanced monitoring and formal audit proceedings. Section 2: Provider Denial Rate Monitoring -------------------------------------------- The provider denial rate is calculated as the percentage of a provider's total submitted claims that have one or more validation flags. This metric is computed in the Gold feature engineering layer as the provider_denial_rate feature. Thresholds: - NORMAL: Provider denial rate below 20%. No action required. - ELEVATED: Provider denial rate between 20% and 40%. The provider receives a notification letter recommending a review of their billing practices. - HIGH RISK: Provider denial rate above 40%. The provider is flagged for a formal compliance audit. Section 3: Audit Trigger Criteria ------------------------------------ A formal provider audit is triggered when ANY of the following conditions are met: 1. Provider denial rate exceeds 40% over a 90-day period. 2. More than 10 claims from the same provider are flagged with WARN_HIGH_BILLING within a 30-day period. 3. More than",
+    "metadata": {
+      "source_file": "provider_audit_policy.txt",
+      "chunk_index": 0,
+      "total_chunks": 3
+    }
+  },
+  {
+    "chunk_id": "provider_audit_policy_1",
+    "source_file": "provider_audit_policy.txt",
+    "text": "Section 3: Audit Trigger Criteria ------------------------------------ A formal provider audit is triggered when ANY of the following conditions are met: 1. Provider denial rate exceeds 40% over a 90-day period. 2. More than 10 claims from the same provider are flagged with WARN_HIGH_BILLING within a 30-day period. 3. More than 5 claims from the same provider are flagged with ERR_INCOMPLETE_CLAIM within a 30-day period. 4. A single claim from the provider has a billed amount exceeding 10 times the expected cost. Section 4: Audit Process --------------------------- When an audit is triggered: a) The compliance team sends a formal audit notification to the provider within 5 business days. b) The provider has 30 days to submit documentation for all flagged claims. c) The compliance team reviews all submitted documentation and cross-references with clinical records. d) If billing irregularities are confirmed, the provider may face penalties including: - Reduced reimbursement rates for 6 months. - Mandatory billing training program completion. - Temporary suspension from the payer network. - Referral to the Office of Inspector General (OIG) for suspected fraud. Section 5: Provider Claim Volume ----------------------------------- The provider_claim_count feature tracks the total number of claims submitted by each provider. High-volume providers (more than",
+    "metadata": {
+      "source_file": "provider_audit_policy.txt",
+      "chunk_index": 1,
+      "total_chunks": 3
+    }
+  },
+  {
+    "chunk_id": "provider_audit_policy_2",
+    "source_file": "provider_audit_policy.txt",
+    "text": "6 months. - Mandatory billing training program completion. - Temporary suspension from the payer network. - Referral to the Office of Inspector General (OIG) for suspected fraud. Section 5: Provider Claim Volume ----------------------------------- The provider_claim_count feature tracks the total number of claims submitted by each provider. High-volume providers (more than 100 claims per month) receive additional scrutiny because: - Billing errors at scale can result in significant financial impact. - High-volume providers may use automated billing systems that can propagate systematic errors. - Pattern detection is more statistically reliable with larger claim volumes.",
+    "metadata": {
+      "source_file": "provider_audit_policy.txt",
+      "chunk_index": 2,
+      "total_chunks": 3
+    }
+  }
+]

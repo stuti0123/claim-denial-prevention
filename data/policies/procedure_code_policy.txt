@@ -1,0 +1,52 @@
+PROCEDURE CODE POLICY — CPT Code Requirements for Claims
+==========================================================
+Document ID: POL-PX-001
+Effective Date: 2026-01-01
+Department: Medical Coding Compliance
+
+Section 1: Purpose
+-------------------
+This policy defines the requirements for procedure codes on
+healthcare claim submissions. Every claim must include a valid
+CPT procedure code that accurately describes the service performed.
+
+Section 2: Procedure Code Requirements
+-----------------------------------------
+All claims MUST include a valid procedure code. The procedure code
+identifies the specific medical service, surgery, or treatment that
+was provided to the patient. Without a procedure code, the payer
+cannot determine the appropriate reimbursement amount.
+
+Section 3: Missing Procedure Code — WARN_MISSING_PROCEDURE
+-------------------------------------------------------------
+When a claim is submitted without a procedure code, it is flagged
+with WARN_MISSING_PROCEDURE. This flag carries a risk weight of 2.
+
+A missing procedure code means:
+  - The payer cannot determine what service was provided.
+  - The expected cost cannot be calculated (no cost benchmark).
+  - The claim cannot be matched against the patient's coverage plan.
+  - Reimbursement cannot be processed until the code is added.
+
+Remediation steps for WARN_MISSING_PROCEDURE:
+  a) Review the operative report or procedure notes from the
+     date of service.
+  b) Identify the CPT code that matches the service performed.
+  c) Verify that the CPT code is current and not retired.
+  d) Add the procedure code to the claim and resubmit.
+  e) If multiple procedures were performed, include all applicable
+     CPT codes with appropriate modifiers.
+  f) If the procedure is unlisted, use the appropriate unlisted
+     procedure code and attach a detailed description.
+
+Section 4: Procedure-Diagnosis Matching
+------------------------------------------
+The procedure code must be clinically consistent with the diagnosis
+code. For example:
+  - A cardiac procedure should be paired with a cardiac diagnosis
+    (D20 — Cardiac conditions).
+  - An orthopedic procedure should be paired with an orthopedic
+    diagnosis (D30 — Orthopedic conditions).
+
+Mismatched procedure-diagnosis pairs may trigger additional review
+and potential denial for lack of medical necessity.

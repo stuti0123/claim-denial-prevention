@@ -2,7 +2,19 @@
 
 A production-grade, end-to-end healthcare claim denial prediction system built on a **local-first, HIPAA-compliant** architecture.
 
-> **Stack:** Python 3.11 · FastAPI · Streamlit · XGBoost (Optuna-tuned) · SHAP · FAISS · sentence-transformers · Pandas Medallion Pipeline
+> **Stack:** Python 3.11 · FastAPI · Streamlit · XGBoost (Optuna-tuned) · SHAP · FAISS · PostgreSQL · Docker · Nginx
+
+---
+
+## 🩺 Key Features
+- ✅ **Medallion Architecture** (Bronze → Silver → Gold) for robust data pipelines.
+- ✅ **Hybrid AI Engine** — XGBoost ML + deterministic compliance overrides.
+- ✅ **SHAP Explainability** — Per-claim denial reason breakdown.
+- ✅ **100% Offline RAG** — FAISS + local sentence-transformers (HIPAA safe, no data leaves the server).
+- ✅ **Role-Based Access Control (RBAC)** — Strict separation between Billing Admins and Clerks.
+- ✅ **Enterprise Cloud Deployment** — Fully containerized with Docker, Nginx Reverse Proxy, and Let's Encrypt HTTPS certificates.
+- ✅ **Persistent Relational DB** — Powered by AWS RDS / PostgreSQL.
+- ✅ **Optuna Hyperparameter Tuning** — ML AUC-ROC: 0.9374.
 
 ---
 
@@ -15,7 +27,7 @@ Raw Data → Bronze Layer → Silver Layer → Gold Layer → ML Model (XGBoost 
                                                             ↓
                                                   Remediation Agent (Report)
                                                             ↓
-                                              FastAPI Backend ← Streamlit Dashboard
+                          PostgreSQL DB ← FastAPI Backend ← Streamlit Dashboard
 ```
 
 | Layer | Description |
@@ -23,15 +35,32 @@ Raw Data → Bronze Layer → Silver Layer → Gold Layer → ML Model (XGBoost 
 | **Bronze** | Raw ingestion, schema validation, timestamping |
 | **Silver** | Data cleaning, compliance flag injection |
 | **Gold** | Feature engineering (7 ML-ready features) |
-| **ML Model** | XGBoost + Optuna hyperparameter tuning, AUC-ROC: 0.9374 |
+| **ML Model** | XGBoost + Optuna hyperparameter tuning |
 | **RAG** | FAISS vector store + local sentence-transformers (100% offline) |
 | **Agent** | Generates structured remediation plan with policy evidence |
-| **API** | FastAPI with OAuth2 security layer |
+| **API** | FastAPI with OAuth2 RBAC security layer |
 | **Dashboard** | Streamlit with Hybrid AI engine toggle |
+| **Infrastructure**| Docker Compose, Nginx Reverse Proxy, Certbot HTTPS |
 
 ---
 
-## ⚡ Quick Start (On Any Device)
+## ☁️ Cloud Deployment (AWS EC2)
+
+The system is designed for secure, HIPAA-compliant enterprise deployment using **Docker Compose**.
+
+### Running the Production Stack:
+1. Clone the repository on your server.
+2. Ensure you have Docker and Docker Compose installed.
+3. Configure your `.env` file with your PostgreSQL `DATABASE_URL` and security keys.
+4. Launch the stack:
+   ```bash
+   docker-compose up -d --build
+   ```
+5. Configure Nginx and Certbot to serve the application securely over HTTPS (port 443).
+
+---
+
+## ⚡ Local Quick Start (Development)
 
 ### Prerequisites
 - Python 3.11+
@@ -60,60 +89,24 @@ pip install -r requirements.txt
 ```
 > ⚠️ The first install downloads ~1.5GB (sentence-transformers model). Be patient.
 
-### Step 4: Download the Embedding Model (One Time)
+### Step 4: Download the Embedding Model & Build FAISS Index (One Time)
 ```bash
 python scripts/download_model.py
-```
-
-### Step 5: Build the RAG Vector Store (One Time)
-```bash
 python -m src.rag.vector_store
 ```
 
-### Step 6: Run the Pipeline (Optional — data already in repo)
-> **Skip this step if you just want to run the dashboard.**
-> Pre-built Bronze/Silver/Gold CSVs and trained model files are included in the repo.
-
-```bash
-# Only needed if you want to re-train from scratch:
-python -m src.ingestion.bronze_loader
-python -m src.silver.validator
-python -m src.gold.feature_engineer
-python -m src.ml.trainer
-```
-
-### Step 7: Start the Backend API
+### Step 5: Start the Backend API
 ```bash
 uvicorn src.api.main:app --host 0.0.0.0 --port 8000
 ```
-The API will be live at: http://localhost:8000
 Interactive docs at: http://localhost:8000/docs
 
-### Step 8: Start the Dashboard (in a new terminal)
+### Step 6: Start the Dashboard (in a new terminal)
 ```bash
-source venv/bin/activate   # activate venv again in the new terminal
+source venv/bin/activate
 streamlit run src/dashboard/app.py
 ```
 The dashboard will open at: http://localhost:8501
-
----
-
-## 🔐 OAuth2 Security Demo
-
-The API has a built-in OAuth2 token endpoint. You can test it at:
-
-- **POST** `http://localhost:8000/api/v1/token`
-  - `username`: `admin`
-  - `password`: `password123`
-- **GET** `http://localhost:8000/api/v1/secure-demo` ← Protected endpoint
-
----
-
-## 🧪 Running Tests
-```bash
-source venv/bin/activate
-python -m pytest src/tests/ -v
-```
 
 ---
 
@@ -128,9 +121,7 @@ claim-denial-system/
 ├── models/
 │   ├── denial_model.pkl        # Trained XGBoost model
 │   ├── threshold.json          # Optimal decision threshold
-│   ├── feature_medians.json    # Imputation medians
 │   ├── policy_index.faiss      # FAISS vector index
-│   └── policy_chunks.json      # Policy text chunks
 ├── src/
 │   ├── api/             # FastAPI backend (main.py)
 │   ├── dashboard/       # Streamlit frontend (app.py)
@@ -141,19 +132,11 @@ claim-denial-system/
 │   ├── rag/             # FAISS vector store + retriever
 │   ├── agent/           # Remediation agent + prompts
 │   ├── profiling/       # Data profiling module
-│   └── core/            # Logger, error codes, exceptions
+│   └── core/            # Logger, error codes, database models
 ├── scripts/             # Setup utilities
-├── requirements.txt
+├── docker-compose.yml   # Production container orchestration
+├── Dockerfile           # API container build
+├── Dockerfile.streamlit # Dashboard container build
+├── requirements.txt     # Python dependencies
 └── README.md
 ```
-
----
-
-## 🩺 Key Features
-- ✅ **Medallion Architecture** (Bronze → Silver → Gold)
-- ✅ **Hybrid AI Engine** — XGBoost ML + deterministic compliance overrides
-- ✅ **SHAP Explainability** — per-claim denial reason breakdown
-- ✅ **100% Offline RAG** — FAISS + local sentence-transformers (HIPAA safe)
-- ✅ **OAuth2 Security** — FastAPI token endpoint ready
-- ✅ **6 Unit Test Suites** — full layer coverage
-- ✅ **Optuna Hyperparameter Tuning** — AUC-ROC: 0.9374

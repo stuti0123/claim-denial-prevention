@@ -24,39 +24,35 @@ WHY USE TEMPLATES INSTEAD OF A LOCAL LLM?
 
 # The main remediation plan structure
 REMEDIATION_PLAN_TEMPLATE = """
-======================================================================
-REMEDIATION PLAN FOR CLAIM: {claim_id}
-======================================================================
+### 📋 Remediation Plan: `{claim_id}`
 
-1. SUMMARY
-----------------------------------------------------------------------
+#### 1. Summary
 This claim has been flagged by the AI prediction model as having a high 
 probability of denial. The following validation flags were triggered 
 during the Silver layer data enrichment:
 {flags_list}
 
-2. ROOT CAUSE ANALYSIS (RAG Policy Retrieval)
-----------------------------------------------------------------------
+#### 2. Root Cause Analysis (Policy Retrieval)
 Based on the healthcare billing policies, here are the underlying rules 
 that apply to these flags:
 
 {policy_analysis}
 
-3. REQUIRED ACTIONS
-----------------------------------------------------------------------
+#### 3. Required Actions
 To remediate this claim before final submission to the payer, please 
 complete the following steps:
 
 {action_steps}
-
-======================================================================
 """
 
 # Template for formatting a single policy chunk retrieved from FAISS
 POLICY_CHUNK_TEMPLATE = """
-[Flag: {flag}] (Source: {source_file})
-Policy Excerpt:
-"{policy_text}"
+<details>
+<summary>🚨 <b>Flag: {flag}</b> <i>(Source: {source_file})</i></summary>
+<div style="padding: 12px; background-color: #1E293B; border-left: 4px solid #3B82F6; margin-top: 8px; margin-bottom: 8px; border-radius: 4px; font-size: 0.9em; font-family: monospace; white-space: pre-wrap;">
+{policy_text}
+</div>
+</details>
 """
 
 # Template for generating action steps based on specific flags

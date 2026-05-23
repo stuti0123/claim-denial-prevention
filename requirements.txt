@@ -34,7 +34,15 @@ altair>=5.0.0           # charts in Streamlit dashboard
 matplotlib>=3.7.0
 seaborn>=0.12.0
 
+# ---- Auth & Database (Production) -----------------------------------------
+sqlalchemy>=2.0.0       # ORM for SQLite / PostgreSQL
+psycopg2-binary>=2.9.9  # PostgreSQL driver
+passlib[bcrypt]>=1.7.4  # bcrypt password hashing
+bcrypt==4.0.1           # pinned due to passlib compatibility bug with 4.1.0+
+python-jose[cryptography]>=3.3.0  # JWT token encode/decode
+
 # ---- Environment & secrets ---------------------------------
+
 python-dotenv>=1.0.0   # loads .env into os.environ
 
 # ---- Testing -----------------------------------------------
